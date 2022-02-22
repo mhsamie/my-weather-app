@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>weather App</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form id="inp-btn" class="d-grid gap-2 col-12 mx-auto">
+            <input type="text" placeholder="please enter your city name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required />
+            <button value="submit" class="btn btn-outline-info" type="button">SEARCH</button>
+        </form>
+        <div id="result-sec" class="row">
+            <div id="result-el" class="col-6">
+                <p id="cityname">sity name</p>
+                <p id="DT"></p>
+                <p id="temp-num">0</p>
+                <p id="feels-like"></p>
+                <div id="convertor">
+                    <a href="#" id="cels">°C</a>|<a href="#" id="faren">°F</a> degree</div>
+            </div>
+            <div id="icontoday" class="col-6">
+                TODAY <br>
+                <img id="imgtoday" src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/433/original/PartlyCloudyNight.png?1643988404" />
+                <p id="descrption"></p>
+            </div>
+        </div>
+        <div id="nextdays" class="row row-cols-5 align-items-center justify-content-center">
+            <div class="col-3">Tomorrow <br>1°C <br>
+                <img id="tomorrow" src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/430/original/IsoSleetSwrsDay.png?1643987482"></div>
+            <div class="col-3">Friday<br>-4°C <br><img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/431/original/HeavyRainSwrsNight.png?1643988186" />
+            </div>
+            <div class="col-3">saterday<br>2°C<br>
+                <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/434/original/CloudRainThunder.png?1643988504" />
+            </div>
+            <div class="col-3">Sunday<br>-9°C<br>
+                <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/435/original/Blizzard.png?1643988856" />
+            </div>
+
+        </div>
+        <script src="index.js"></script>
+</body>
+
+</html>

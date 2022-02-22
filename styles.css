@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+.container {
+    margin: 20 auto;
+    position: relative;
+    top: 25px;
+    /* width: 380px; */
+    font-family: Poppins;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgb(141, 145, 153);
+}
+
+div a {
+    text-decoration: none;
+    color: rgb(89, 153, 212);
+    cursor: pointer;
+}
+
+#temp-num {
+    font-size: 45px;
+    display: inline;
+}
+
+#DT {
+    font-weight: lighter;
+}
+
+#cityname {
+    font-weight: bold;
+}
+
+#inp-btn {
+    position: relative;
+    top: 10px;
+}
+
+#result-sec {
+    margin: 20px auto;
+}
+
+#result-el {
+    align-items: center;
+    text-align: center;
+}
+
+#nextdays {
+    align-items: center;
+    text-align: center;
+    background-color: rgba(85, 163, 228, 0.671);
+    border-radius: 20px;
+}
+
+img {
+    width: 35px;
+}
+
+#icontoday {
+    background-color: rgb(184, 217, 228);
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#imgtoday {
+    width: 70px;
+    margin: 30px;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    text-align: center;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    text-align: center;
+}
+
+:-ms-input-placeholder {
+    text-align: center;
+}
