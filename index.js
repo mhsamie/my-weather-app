@@ -10,7 +10,24 @@ function displayTemp(response) {
     cityName.innerHTML = response.data.name;
     // display temprature
     start.innerHTML = Math.round(response.data.main.temp);
-    ""
+    let cels = document.getElementById("cels");
+    let fahrenheit = document.getElementById("faren");
+    startValue = start.innerText;
+
+    function convert(event) {
+        event.preventDefault();
+        let fisrtStep = startValue * 1.8;
+        let celsiusToFahrenheit = fisrtStep + 32;
+        start.innerHTML = Math.round(celsiusToFahrenheit);
+        // const fahrenheitToCelsius = (fahrenheit) => ((fahrenheit - 32) * 5) / 9;
+    }
+    fahrenheit.addEventListener("click", convert);
+
+    function backToCels(event) {
+        event.preventDefault();
+        start.innerHTML = startValue;
+    }
+    cels.addEventListener("click", backToCels);
     feelsLike.innerHTML = "feels like : " + Math.round(response.data.main.feels_like) + " °C";
     description.innerHTML = response.data.weather[0].description;
 };

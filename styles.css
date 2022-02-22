@@ -82,3 +82,12 @@ img {
 :-ms-input-placeholder {
     text-align: center;
 }
+
+#repo {
+    text-align: center;
+    color: black;
+}
+
+#repo:hover {
+    color: darkcyan;
+}
