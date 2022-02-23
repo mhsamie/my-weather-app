@@ -17,7 +17,7 @@ function displayTemp(response) {
     startValue = start.innerText;
     // show humidity and wind speed
 humid.innerHTML=`humidity is: ${response.data.main.humidity} %`;
-windspeed.innerHTML=`wind speed: ${response.data.wind.speed}`;
+windspeed.innerHTML=`wind speed: ${response.data.wind.speed} km/h`;
     function convert(event) {
         event.preventDefault();
         let fisrtStep = startValue * 1.8;
@@ -34,6 +34,9 @@ windspeed.innerHTML=`wind speed: ${response.data.wind.speed}`;
     cels.addEventListener("click", backToCels);
     feelsLike.innerHTML = "feels like : " + Math.round(response.data.main.feels_like) + " °C";
     description.innerHTML = response.data.weather[0].description;
+    // change icon today
+    let todayImg= document.querySelector("#imgtoday");
+    todayImg.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
 };
 
 function search(event) {
@@ -66,5 +69,4 @@ let minuts = now.getMinutes();
 
 let showDateAndTime = document.querySelector("#DT");
 showDateAndTime.innerHTML = ` ${day} ${hour}:${minuts}`;
-
 
