@@ -129,7 +129,7 @@ function getCurrentLoco(position){
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
     let apiUrl=`api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-cityName.innerHTML=response.data.name;
+axios.get(apiUrl).then(displayTemp)
 }
 
 navigator.geolocation.getCurrentPosition(getCurrentLoco)
