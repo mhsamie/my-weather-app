@@ -6,7 +6,7 @@ let humid = document.querySelector("#humidity");
 let windspeed=document.querySelector("#windspeed");
 // search engine
 function displayTemp(response) {
-    console.log(response.data)
+    
         //change name of the city
 
     cityName.innerHTML = response.data.name;
@@ -36,7 +36,9 @@ windspeed.innerHTML=`wind speed: ${response.data.wind.speed} km/h`;
     description.innerHTML = response.data.weather[0].description;
     // change icon today
     let todayImg= document.querySelector("#imgtoday");
-    todayImg.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+  todayImg.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+// get lat and log
+getForecast(response.data.coord);
 };
 
 function search(event) {
@@ -69,4 +71,53 @@ let minuts = now.getMinutes();
 
 let showDateAndTime = document.querySelector("#DT");
 showDateAndTime.innerHTML = ` ${day} ${hour}:${minuts}`;
+//format day 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+  return days[day];
+}
+// forcast
+function displayForecast(response){
+    console.log(response.data.daily)
+    let forecast= response.data.daily;
+    let forcastEl= document.querySelector("#nextdays");
+    let forcastDays="";
+   forecast.forEach(function (day, index){
+       if(index<6){
+           forcastDays +=`<div class="col-2">${formatDay(day.dt)}<br/> 
+           <img src="http://openweathermap.org/img/wn/${
+                       day.weather[0].icon
+                    }@2x.png"
+                    alt=""
+                    width="42">
+           <div class="weather-forecast-temperatures">
+           <span class="weather-forecast-temperature-max"> ${Math.round(
+               day.temp.max
+               )}° </span>
+               <span class="weather-forecast-temperature-min"> ${Math.round(
+                   day.temp.min
+                   )}° </span>
+                   </div>
+                   
+                    </div>`;
+                }
+            });
+            console.log(forcastDays)
+
+       forcastEl.innerHTML= forcastDays;
+       
+
+    
+    
+    
+
+}
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "5ef53446dcb07ea2a0fb8ef5e317e310";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
