@@ -2,6 +2,8 @@ let start = document.getElementById("temp-num");
 let feelsLike = document.querySelector("#feels-like");
 let description = document.querySelector("#descrption");
 let cityName = document.querySelector("#cityname");
+let humid = document.querySelector("#humidity");
+let windspeed=document.querySelector("#windspeed");
 // search engine
 function displayTemp(response) {
     console.log(response.data)
@@ -13,7 +15,9 @@ function displayTemp(response) {
     let cels = document.getElementById("cels");
     let fahrenheit = document.getElementById("faren");
     startValue = start.innerText;
-
+    // show humidity and wind speed
+humid.innerHTML=`humidity is: ${response.data.main.humidity} %`;
+windspeed.innerHTML=`wind speed: ${response.data.wind.speed}`;
     function convert(event) {
         event.preventDefault();
         let fisrtStep = startValue * 1.8;
@@ -36,16 +40,21 @@ function search(event) {
     event.preventDefault();
     let city = document.querySelector("input").value;
     let apiUrl =
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=5ef53446dcb07ea2a0fb8ef5e317e310`;
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=5ef53446dcb07ea2a0fb8ef5e317e310`;
     axios.get(apiUrl).then(displayTemp);
-
+    //reset input
+    // document.querySelector("form").onsubmit = (e) => {
+    //     e.target.inputReset();
+    // };
+    
 }
+let submitform= document.getElementById("inp-btn");
+submitform.addEventListener("submit", search);
 let btnsearch = document.querySelector("button");
 btnsearch.addEventListener("click", search);
-//reset input
-let inputReset = (document.querySelector("form").onsubmit = (e) => {
-    e.target.inputReset();
-});
+//check input
+
+ 
 
 // display date and time
 let now = new Date();
@@ -57,22 +66,5 @@ let minuts = now.getMinutes();
 
 let showDateAndTime = document.querySelector("#DT");
 showDateAndTime.innerHTML = ` ${day} ${hour}:${minuts}`;
-// fahrenheit convertor
-let cels = document.getElementById("cels");
-let fahrenheit = document.getElementById("faren");
-startValue = start.innerText;
 
-function convert(event) {
-    event.preventDefault();
-    let fisrtStep = startValue * 1.8;
-    let celsiusToFahrenheit = fisrtStep + 32;
-    start.innerHTML = Math.round(celsiusToFahrenheit);
-    // const fahrenheitToCelsius = (fahrenheit) => ((fahrenheit - 32) * 5) / 9;
-}
-fahrenheit.addEventListener("click", convert);
 
-function backToCels(event) {
-    event.preventDefault();
-    start.innerHTML = startValue;
-}
-cels.addEventListener("click", backToCels);

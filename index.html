@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="container">
         <form id="inp-btn" class="d-grid gap-2 col-12 mx-auto">
-            <input type="text" placeholder="please enter your city name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required />
+            <input  type="text" placeholder="please enter your city name" class="form-control " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required />
             <button value="submit" class="btn btn-outline-info" type="button">SEARCH</button>
         </form>
         <div id="result-sec" class="row">
@@ -21,7 +21,9 @@
                 <p id="cityname">sity name</p>
                 <p id="DT"></p>
                 <p id="temp-num">0</p>
-                <p id="feels-like"></p>
+                <br/>
+                <br/>
+                <p id="feels-like">feels like</p>
                 <div id="convertor">
                     <a href="#" id="cels">°C</a>|<a href="#" id="faren">°F</a> degree</div>
             </div>
@@ -29,6 +31,9 @@
                 TODAY <br>
                 <img id="imgtoday" src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/433/original/PartlyCloudyNight.png?1643988404" />
                 <p id="descrption"></p>
+                <p id="windspeed">humiduty</p>
+                <p id="humidity">windspeed</p>
+               
             </div>
         </div>
         <div id="nextdays" class="row row-cols-5 align-items-center justify-content-center">
@@ -42,7 +47,7 @@
             <div class="col-3">Sunday<br>-9°C<br>
                 <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/435/original/Blizzard.png?1643988856" />
             </div>
-
+</div>
         </div>
         <a id="repo" href="https://github.com/mhsamie/my-weather-app.git">source code on github</a>
         <script src="index.js"></script>

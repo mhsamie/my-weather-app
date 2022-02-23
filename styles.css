@@ -1,10 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-.container {
-    margin: 20 auto;
+*{
+    font-family: Poppins;
+
+}
+
+#container {
+    display: block;
+    padding: 0 12px ;
     position: relative;
     top: 25px;
-    /* width: 380px; */
-    font-family: Poppins;
+    max-width: 600px;
+    margin: 0 auto;
     border-radius: 20px;
     box-shadow: 2px 2px 5px rgb(141, 145, 153);
 }
@@ -22,10 +28,12 @@ div a {
 
 #DT {
     font-weight: lighter;
+    
 }
 
 #cityname {
     font-weight: bold;
+    font-size: 35px;
 }
 
 #inp-btn {
@@ -84,8 +92,13 @@ img {
 }
 
 #repo {
+    padding: 10px;
     text-align: center;
+    display: block;
     color: black;
+    text-decoration: none;
+    position: relative;
+    top: 20px;
 }
 
 #repo:hover {
