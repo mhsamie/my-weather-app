@@ -81,7 +81,7 @@ function formatDay(timestamp) {
 }
 // forcast
 function displayForecast(response){
-    console.log(response.data.daily)
+ 
     let forecast= response.data.daily;
     let forcastEl= document.querySelector("#nextdays");
     let forcastDays="";
@@ -105,7 +105,7 @@ function displayForecast(response){
                     </div>`;
                 }
             });
-            console.log(forcastDays)
+            
 
        forcastEl.innerHTML= forcastDays;
        
@@ -116,8 +116,22 @@ function displayForecast(response){
 
 }
 function getForecast(coordinates) {
-  console.log(coordinates);
+  
   let apiKey = "5ef53446dcb07ea2a0fb8ef5e317e310";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
+// show current location 
+
+function getCurrentLoco(position){
+
+    let apiKey = "5ef53446dcb07ea2a0fb8ef5e317e310";
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let apiUrl=`api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+cityName.innerHTML = works;
+}
+
+navigator.geolocation.getCurrentPosition(getCurrentLoco)
+
+
